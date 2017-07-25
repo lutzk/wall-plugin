@@ -1,7 +1,9 @@
 module.exports = {
   entry: './src/app.ts',
   output: {
-    filename: './dist/bundle.js'
+    filename: './dist/bundle.js',
+    libraryTarget: 'var',
+    library: 'Wall'
   },
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
