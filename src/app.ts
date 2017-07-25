@@ -1,10 +1,9 @@
 export class Wall {
   private _id: number = new Date().getTime();
   private _html: string = `
-  <div class="wall-plugin-container wall-plugin-id-${this._id}">
-    <h1>What's Up!?</h1>
-  </div>
-  `;
+    <div class="wall-plugin-container wall-plugin-id-${this._id}">
+      <h1>What's Up!?</h1>
+    </div>`;
 
   constructor(options) {
     console.log(options);
