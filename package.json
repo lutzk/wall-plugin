@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "./node_modules/.bin/gulp build watch"
+    "watch": "./node_modules/.bin/gulp build watch",
+    "build": "./node_modules/.bin/webpack --optimize-minimize --define process.env.NODE_ENV=\"'production'\""
   },
   "keywords": [],
   "author": "",
