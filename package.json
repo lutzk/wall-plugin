@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "watch": "./node_modules/.bin/gulp build watch"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,13 @@
     "ts-loader": "^2.2.1",
     "typescript": "^2.4.1",
     "webpack": "^3.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-watch": "^4.3.11"
   }
 }
