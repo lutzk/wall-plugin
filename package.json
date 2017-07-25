@@ -9,13 +9,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "lodash.debounce": "^4.0.8",
     "ts-loader": "^2.2.1",
     "typescript": "^2.4.1",
-    "webpack": "^3.0.0"
-  },
-  "devDependencies": {
+    "webpack": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-concat": "^2.6.1",
