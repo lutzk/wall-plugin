@@ -1,18 +1,78 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Wall Plugin</title>
-        <script src="./../dist/bundle.js"></script>
-        <script type="text/javascript">
-          var wall = new Wall.Wall();
-          console.log(wall);
-        </script>
-    </head>
-    <body>
-      <h1>Hello World</h1>
-    </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wall Plugin</title>
+  <script src="./../dist/bundle.js"></script>
+  <script type="text/javascript">
+    var options = {
+      "picture": {
+        "img": "https://de.staging02.photo-loft.de/product/image-with-frame/?colorId=2036818&frameName=lumas_rahmen%2Fpasse_spessart_eiche_schwarz.png&frameId=2036808&abstractId=209218&imageSku=IME25&sku=IME26",
+        "height": 74
+      },
+      "rooms": [{
+        "img": "https://media.lumas.com/_reserved_pm_files/erv/room-102.jpg",
+        "thumbnail": "https://media.lumas.com/_reserved_pm_files/erv/room-102t.jpg",
+        "wallHeight": {
+          "px": 1294,
+          "cm": 240
+        },
+        "usableWallSpace": {
+          "width": 173,
+          "height": 164,
+          "topOffset": 0
+        }
+      }, {
+        "img": "https://media.lumas.com/_reserved_pm_files/erv/room-108.jpg",
+        "thumbnail": "https://media.lumas.com/_reserved_pm_files/erv/room-108t.jpg",
+        "wallHeight": {
+          "px": 1294,
+          "cm": 350
+        },
+        "usableWallSpace": {
+          "width": 207,
+          "height": 150,
+          "topOffset": 0
+        }
+      }, {
+        "img": "https://media.lumas.com/_reserved_pm_files/erv/room-106.jpg",
+        "thumbnail": "https://media.lumas.com/_reserved_pm_files/erv/room-106t.jpg",
+        "wallHeight": {
+          "px": 1294,
+          "cm": 259,
+        },
+        "usableWallSpace": {
+          "width": 212,
+          "height": 154,
+          "topOffset": 0
+        }
+      }, {
+        "img": "https://media.lumas.com/_reserved_pm_files/erv/room-107.jpg",
+        "thumbnail": "https://media.lumas.com/_reserved_pm_files/erv/room-107t.jpg",
+        "wallHeight": {
+          "px": 1294,
+          "cm": 233
+        },
+        "usableWallSpace": {
+          "width": 276,
+          "height": 131,
+          "topOffset": 0
+        }
+      }]
+    };
+
+    window.onload = function () {
+      var wall = new Wall.Wall(options);
+      console.log(wall);
+    }
+  </script>
+</head>
+
+<body>
+</body>
+
 </html>
