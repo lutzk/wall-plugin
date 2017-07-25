@@ -11,15 +11,15 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "lodash.debounce": "^4.0.8",
-    "ts-loader": "^2.2.1",
-    "typescript": "^2.4.1",
-    "webpack": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-sass": "^3.1.0",
-    "gulp-watch": "^4.3.11"
+    "gulp-watch": "^4.3.11",
+    "lodash.debounce": "^4.0.8",
+    "ts-loader": "^2.3.1",
+    "typescript": "^2.4.2",
+    "webpack": "^3.3.0"
   }
 }
