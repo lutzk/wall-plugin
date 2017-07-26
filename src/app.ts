@@ -4,13 +4,13 @@ export class Wall {
   private _id: number = new Date().getTime();
   private _html: string = `
     <div class="wall-plugin-container wall-plugin-id-${this._id}">
-      <div class="wall-plugin-background">
-        <div class="wall-plugin-image-container"></div>
-      </div>
-      <div class="wall-plugin-image"></div>
-      <div class="wall-plugin-carousel"></div>
+      <img class="wall-plugin-background-image" src="" />
+      <div class="wall-plugin-background-container"></div>
     </div>`;
   private _options: any;
+  private _container: HTMLElement;
+  private _backgroundImageElement: HTMLElement;
+  private _backgroundContainerElement: HTMLElement;
 
   constructor(options) {
     this.onInit(options);
@@ -18,26 +18,34 @@ export class Wall {
 
   private async onInit(options) {
     document.body.innerHTML += this._html;
-    let el = <HTMLElement> document.querySelector(`.wall-plugin-id-${this._id} .wall-plugin-background`);
-    el.style.backgroundImage = `url('${options.rooms[0].img}')`;
-    let size = await this.getImageSize(options.rooms[0].img);
-    console.log(size);
-    // let container = <HTMLElement> document.querySelector(`.wall-plugin-id-${this._id} .wall-plugin-image-container`);
-    // let padding = Math.floor((size.getRatio() * 100));
-    // el.style.height = `${padding}vw`;
-    // size.isWide() ? container.style.width = '100%' : container.style.height = '100%';
+    this._container = <HTMLElement>document.querySelector(`.wall-plugin-id-${this._id}`);
+    this._backgroundImageElement = <HTMLElement>this._container.querySelector('.wall-plugin-background-image');
+    this._backgroundContainerElement = <HTMLElement>this._container.querySelector('.wall-plugin-background-container');
 
-    window.onresize = function () {
+    await this.setBackground(options.rooms[0]);
+
+    window.onresize = async () => {
       let windowSize = new Size(window.innerWidth, window.innerHeight);
-      console.log(windowSize);
+      this.setBackgroundContainerSize();
     }
   }
 
-  private async getImageSize(url: string) : Promise<Size> {
+  private async setBackgroundContainerSize(): Promise<void> {
+    let imageElementSize = new Size(this._backgroundImageElement.clientWidth, this._backgroundImageElement.clientHeight);
+    this._backgroundContainerElement.style.width = `${imageElementSize.width}px`;
+    this._backgroundContainerElement.style.height = `${imageElementSize.height}px`;
+  }
+
+  private async setBackground(room): Promise<void> {
+    this._backgroundImageElement.setAttribute('src', room.img);
+    this.setBackgroundContainerSize();
+  }
+
+  private async getImageSize(url: string): Promise<Size> {
     return new Promise<Size>((resolve, reject) => {
       let img = new Image();
       let size = new Size();
-      img.onload = function() {
+      img.onload = function () {
         size.width = img.width;
         size.height = img.height;
 
