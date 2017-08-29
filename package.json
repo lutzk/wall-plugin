@@ -1,15 +1,15 @@
 {
-  "name": "l",
+  "name": "wall-plugin",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Wall plugin to display pictures as close to real size as possible.",
+  "main": "",
   "scripts": {
     "watch": "./node_modules/.bin/gulp build watch",
     "build": "./node_modules/.bin/webpack --optimize-minimize --define process.env.NODE_ENV=\"'production'\""
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "stanislavromanov",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.1",
