@@ -1,4 +1,5 @@
-import { Size } from './models/size'
+import { Size } from './models/size';
+import { ImageHelper } from './infrastructure/ImageHelper';
 
 export class Wall {
   private _id: number = new Date().getTime();
@@ -24,8 +25,12 @@ export class Wall {
 
     await this.setBackground(options.rooms[0]);
 
+    // We need to wait until background "room" image is loaded until we can put background container on top of it
+    var imageHelper = new ImageHelper();
+    await imageHelper.getImageSizeByUrl(options.rooms[0].img);
+    this.setBackgroundContainerSize();
+
     window.onresize = async () => {
-      let windowSize = new Size(window.innerWidth, window.innerHeight);
       this.setBackgroundContainerSize();
     }
   }
@@ -39,20 +44,5 @@ export class Wall {
   private async setBackground(room): Promise<void> {
     this._backgroundImageElement.setAttribute('src', room.img);
     this.setBackgroundContainerSize();
-  }
-
-  private async getImageSize(url: string): Promise<Size> {
-    return new Promise<Size>((resolve, reject) => {
-      let img = new Image();
-      let size = new Size();
-      img.onload = function () {
-        size.width = img.width;
-        size.height = img.height;
-
-        return resolve(size);
-      };
-      img.onerror = reject;
-      img.src = url;
-    });
   }
 }
