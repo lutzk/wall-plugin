@@ -17,6 +17,10 @@ export class Wall {
     this.onInit(options);
   }
 
+  public close() {
+    this._container.style.display = 'none';
+  }
+
   private async onInit(options) {
     document.body.innerHTML += this._html;
     this._container = <HTMLElement>document.querySelector(`.wall-plugin-id-${this._id}`);
