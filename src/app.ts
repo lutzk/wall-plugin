@@ -1,8 +1,6 @@
 import { Size } from './models/size';
 import { ImageHelper } from './infrastructure/ImageHelper';
 
-import './scss/main.scss';
-
 export class Wall {
   private _id: number = new Date().getTime();
   private _html: string = `
