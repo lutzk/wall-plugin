@@ -19,7 +19,7 @@ styleOptions.use = [
 ];
 
 var extractTextPlugin = new ExtractTextPlugin({
-  filename: '[name].css',
+  filename: 'style.css',
   disable: false,
   allChunks: true,
 });
