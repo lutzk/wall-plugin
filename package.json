@@ -5,12 +5,17 @@
   "main": "",
   "scripts": {
     "watch": "./node_modules/.bin/gulp build watch",
-    "build": "./node_modules/.bin/webpack --optimize-minimize --define process.env.NODE_ENV=\"'production'\""
+    "watch-dev": "./node_modules/.bin/webpack -d --config webpack.config.js --watch",
+    "build": "./node_modules/.bin/webpack -p"
   },
   "keywords": [],
   "author": "stanislavromanov",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "sass-loader": "^6.0.6"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
