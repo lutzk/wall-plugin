@@ -1,3 +1,4 @@
+var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var styleOptions = {};
@@ -24,11 +25,18 @@ var extractTextPlugin = new ExtractTextPlugin({
 });
 
 module.exports = {
-  entry: './src/app.ts',
+  entry: {
+    main: [
+      './src/scss/main',
+      './src/app.ts'
+    ]
+  },
   output: {
-    filename: './dist/bundle.js',
-    libraryTarget: 'var',
-    library: 'Wall'
+    path: path.resolve(__dirname, 'dist'),
+    library: 'Wall',
+    filename: 'bundle.js',
+    publicPath: '/',
+    libraryTarget: 'var'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.scss']
@@ -45,5 +53,7 @@ module.exports = {
       },
     ]
   },
-  plugins: [extractTextPlugin]
+  plugins: [
+    extractTextPlugin
+  ]
 }
